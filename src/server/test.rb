@@ -1,31 +1,15 @@
-require 'sinatra'
-require 'sinatra/reloader'
-require 'mongoid'
+require 'test/unit'
+require 'rack/test'
 
-load 'api_request.rb'
+class MyAppTest < Test::Unit::TestCase
+  include Rack::Test::Methods
 
-configure do
-   Mongoid.configure do |config|
-    name = "demo"
-    host = "localhost"
-    config.master = Mongo::Connection.new.db(name)
-  end
-end
-
-get '/:api/requests' do
-  api_requests = ApiRequest.all
-
-  response = ""
-  api_requests.each do |api_request|
-    response += api_request.url + "\n"
+  def app
+    Sinatra:Application
   end
 
-  response
-end
-
-post '/:api/requests' do
-  api_request = ApiRequest.new(:url => params[:url], :method => params[:http_method])
-  api_request.save
-
-  "all done"
+  def my_first_test
+    post '/login/requests', :url => 'foo', :http_method => 'bar'
+    assert_equal 200, last_response.status
+  end
 end
