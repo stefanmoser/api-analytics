@@ -1,0 +1,7 @@
+How to run the server:
+----------------------
+
+From a terminal window in the api-analytics folder execute "./run_server.sh"
+From another terminal window in the api-analytics folder execute "./run_mongo.sh"
+
+* If this fails to execute, try executing "chmod +x run_server.sh" first.

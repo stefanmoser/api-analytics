@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/base'
 require 'mongoid'
 
-load 'api_request.rb'
+load './src/server/api_request.rb'
 
 class MyApp < Sinatra::Base
   configure do

@@ -1,2 +1,2 @@
-require './app'
+require './src/server/app'
 run MyApp.new
