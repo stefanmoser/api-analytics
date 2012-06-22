@@ -1,2 +1,3 @@
-require './src/server/app'
+require './src/server/app.rb'
+
 run MyApp.new
