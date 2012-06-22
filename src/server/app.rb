@@ -7,11 +7,13 @@ load './src/server/api_request.rb'
 
 class MyApp < Sinatra::Base
   configure do
-     Mongoid.configure do |config|
-      name = "demo"
-      host = "localhost"
-      config.master = Mongo::Connection.new.db(name)
-    end
+#     Mongoid.configure do |config|
+#      name = "demo"
+#      host = "localhost"
+#      config.master = Mongo::Connection.new.db(name)
+#     end
+
+    Mongoid.load!('./src/server/config/mongoid.yml')
   end
 
   get '/:api/requests' do
